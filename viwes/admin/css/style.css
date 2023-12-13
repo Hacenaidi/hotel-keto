@@ -1,0 +1,66 @@
+.switch1 {
+    --carre: 1.5em;
+    display: inline-flex;
+    align-items: center;
+    /* margin: 1em 2em; */
+    /* font-size: 1.25em; */
+  }
+  .switch1 [type="checkbox"] {
+    position: absolute;
+    left: -9999em;
+  }
+  .switch1 label {
+    display: inline-block;
+    position: relative;
+    width: 4em;
+    height: var(--carre);
+    border: 1px solid #800;
+    border-radius: calc(var(--carre) / 2);
+    font-size: 1em;
+    color: #800;
+    background: #ECD;
+    cursor: pointer;
+  }
+  .switch1 label:before,
+  .switch1 label:after {
+    content: "";
+    position: absolute;
+    transition: .25s ease-in-out;
+  }
+  .switch1 label:before {
+    z-index: 1;
+    top: 50%;
+    right: auto;
+    left: 0;
+    box-sizing: border-box;
+    width: var(--carre);
+    height: var(--carre);
+    border: 1px solid #888;
+    border-radius: 50%;
+    background: #FFF;
+    transform: translate(0, -50%);
+  }
+  .switch1 label:after {
+    content: attr(data-off);
+    z-index: 0;
+    top: 50%;
+    left: 100%;
+    padding: 0 .5em;
+    color: currentColor;
+    transform: translate(-100%, -50%);
+  }
+  .switch1 [type="checkbox"]:checked + label {
+    border: 1px solid #080;
+    color: #080;
+    background: #DEC;
+  }
+  .switch1 [type="checkbox"]:checked + label:before {
+    right: 0;
+    left: 100%;
+    transform: translate(-100%, -50%);
+  }
+  .switch1 [type="checkbox"]:checked + label:after {
+    content: attr(data-on);
+    left: 0;
+    transform: translate(0%, -50%);
+  }
